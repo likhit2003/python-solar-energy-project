@@ -1,16 +1,19 @@
+# Get electricity usage from 3 machines
+m1 = float(input("Machine 1 usage (kWh): "))
+m2 = float(input("Machine 2 usage (kWh): "))
+m3 = float(input("Machine 3 usage (kWh): "))
 
-machine1 = float(input("Enter electricity used by Machine 1 (in kWh): "))
-machine2 = float(input("Enter electricity used by Machine 2 (in kWh): "))
-machine3 = float(input("Enter electricity used by Machine 3 (in kWh): "))
+# Find the machine with the highest usage
+if m1 >= m2 and m1 >= m3:
+    most = "Machine 1"
+    usage = m1
+elif m2 >= m1 and m2 >= m3:
+    most = "Machine 2"
+    usage = m2
+else:
+    most = "Machine 3"
+    usage = m3
 
-machines = {
-    "Machine 1": machine1,
-    "Machine 2": machine2,
-    "Machine 3": machine3
-}
-
-max_machine = max(machines, key=machines.get)
-max_value = machines[max_machine]
-
-print(f"\n{max_machine} consumes the most electricity: {max_value} kWh")
-print(f"Electricity is now diverted to {max_machine} from the solar panel.")
+# Output result
+print(f"\n{most} consumes the most electricity: {usage} kWh")
+print(f"Electricity is now diverted to {most} from the solar panel.")
